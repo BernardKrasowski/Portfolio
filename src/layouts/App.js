@@ -20,7 +20,9 @@ function App() {
             {<Page />}
           </section>
         </main>
-        <footer>{<Footer />}</footer>
+        <footer>
+          {<Footer />}
+        </footer>
       </div>
     </Router>
   );
