@@ -1,0 +1,25 @@
+div.aboutMe{
+  max-width: 80%;
+}
+.aboutMe__title{
+  text-transform: uppercase;
+  text-align: center;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  animation: animation .4s linear;
+  border: 2px solid grey;
+}
+@keyframes animation {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+p.aboutMe__txt{
+  text-indent: 20px;
+  padding-top: 20px;
+  animation: animation .4s linear ;
+  line-height: 30px;
+}
