@@ -7,12 +7,17 @@ function HomePage() {
   const [txt, setTxt] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    let timeoutSecond = '';
+    let timeoutFirst = setTimeout(() => {
       setTitle(!title)
-      setTimeout(() => {
+      timeoutSecond = setTimeout(() => {
         setTxt(!txt);
       }, 800);
     }, 500);
+    return function cleanup() {
+      clearTimeout(timeoutFirst)
+      clearTimeout(timeoutSecond)
+    }
   }, []);
 
   return (

@@ -1,3 +1,10 @@
+body{
+  max-width: 1200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
 div.app{
   display: flex;
   flex-direction: column;
@@ -17,7 +24,6 @@ aside{
 }
 section.page{
   flex-grow: 1;
-
 }
 footer{
   background-color: black;
@@ -26,3 +32,4 @@ footer{
   text-align: center;
   text-transform: uppercase;
 }
+

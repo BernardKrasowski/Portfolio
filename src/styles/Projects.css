@@ -1,0 +1,43 @@
+.container__popap{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 50%;
+  height: 50%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; 
+  animation: popap .3s linear;
+
+}
+@keyframes popap {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+.popap__close{
+  align-self: flex-end;
+  padding: 5px;
+  background-color: rgba(255, 255, 255, 0);
+  border: none;
+}
+.icon__close:hover{
+transition: .2s linear;
+background-color: black;
+color: white;
+cursor: pointer;
+}
+.popap{
+  flex-grow: 1;
+  text-align: center;
+  position: absolute;
+  top:50%;
+  transform: translate(0,-50%);
+}

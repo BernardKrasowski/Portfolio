@@ -9,7 +9,8 @@ import InfoIcon from '@material-ui/icons/Info';
 import img1 from '../images/img1.jpg'
 import img2 from '../images/img2.jpg'
 import img3 from '../images/img3.jpg'
-import Popap from './Popap.js'
+import CloseIcon from '@material-ui/icons/Close';
+import '../styles/Projects.css'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,13 +22,13 @@ const useStyles = makeStyles((theme) => ({
   },
   imageList: {
     width: 500,
-    height: 450,
+    height: 500,
   },
+
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',
   },
 }));
-
 
 const itemData = [
   {
@@ -55,54 +56,47 @@ function ProjectsPage() {
   const classes = useStyles();
 
   const [inf, setInf] = useState(false)
-  const [message, setMessage] = useState('Przykladowe info')
+  const [message, setMessage] = useState('lLorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nam reprehenderit odio magni? Ullam r')
 
   const showInfo = (info) => {
     setInf(!inf);
     setMessage(info)
   }
-
+  const closePopap = () => {
+    setInf(!inf)
+  }
   return (
-    <>
-      {inf
-        ?
-        <Popap message={message} />
-        :
-        <div className={classes.root}>
-          <ImageList rowHeight={180} className={classes.imageList}>
-            <ImageListItem key="Subheader" cols={2} style={{ height: 'auto' }}>
-              <ListSubheader component="div">Projects</ListSubheader>
-            </ImageListItem>
-            {itemData.map((item) => (
-              <ImageListItem key={item.img}>
-                <img src={item.img} alt={item.title} />
-                <ImageListItemBar
-                  title={item.title}
-                  subtitle={<span>by: {item.author}</span>}
-                  actionIcon={
-                    <IconButton aria-label={`info about ${item.title}`} className={classes.icon} onClick={() => showInfo(item.info)}>
-                      <InfoIcon />
-                    </IconButton>
-                  }
-                />
-              </ImageListItem>
-            ))}
-          </ImageList>
+    <div>
+      {inf ? <div className="container__popap">
+        < button className="popap__close" > <CloseIcon className='icon__close' onClick={closePopap} /></button >
+        <div className='popap'>
+          {message}
         </div>
-      }
-    </>
+      </div > : null}
+
+      <div className={classes.root} className='gallery__images'>
+        <ImageList rowHeight={200} className={classes.imageList}>
+          <ImageListItem key="Subheader" cols={2} style={{ height: 'auto' }}>
+            <ListSubheader component="div">Projects</ListSubheader>
+          </ImageListItem>
+          {itemData.map((item) => (
+            <ImageListItem key={item.img}>
+              <img src={item.img} alt={item.title} />
+              <ImageListItemBar
+                title={item.title}
+                subtitle={<span>by: {item.author}</span>}
+                actionIcon={
+                  <IconButton aria-label={`info about ${item.title}`} className={classes.icon} onClick={() => showInfo(item.info)}>
+                    <InfoIcon />
+                  </IconButton>
+                }
+              />
+            </ImageListItem>
+          ))}
+        </ImageList>
+      </div>
+    </div>
+
   );
 }
 export default ProjectsPage;
-
-
-
-// function ProjectsPage() {
-//   return (
-//     <div>
-//       <h1>projects page</h1>
-//     </div>
-//   )
-// }
-
-// export default ProjectsPage
