@@ -1,102 +1,73 @@
 import React, { useState } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import ImageList from '@material-ui/core/ImageList';
-import ImageListItem from '@material-ui/core/ImageListItem';
-import ImageListItemBar from '@material-ui/core/ImageListItemBar';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import IconButton from '@material-ui/core/IconButton';
-import InfoIcon from '@material-ui/icons/Info';
-import img1 from '../images/img1.jpg'
-import img2 from '../images/img2.jpg'
-import img3 from '../images/img3.jpg'
+import '../styles/Projects.css';
 import CloseIcon from '@material-ui/icons/Close';
-import '../styles/Projects.css'
+import blackJack1 from '../imgProjects/blackJack/blackJack1.png'
+import blackJack from '../imgProjects/blackJack/blackJack.png'
+import blackJack2 from '../imgProjects/blackJack/blackJack2.png'
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: theme.palette.background.paper,
-  },
-  imageList: {
-    width: 500,
-    height: 500,
-  },
-
-  icon: {
-    color: 'rgba(255, 255, 255, 0.54)',
-  },
-}));
-
-const itemData = [
+const projects = [
   {
-    img: img1,
-    title: 'Image',
-    author: 'author',
+    img1: blackJack1,
+    img2: blackJack,
+    img3: blackJack2,
+    title: 'BlackJack Game',
     info: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nam reprehenderit odio magni? Ullam repellat aliquid quaerat amet eveniet. Architecto nulla unde voluptatum obcaecati odio beatae quaerat in dolores doloribus."
   },
   {
-    img: img2,
+    img: '',
     title: 'Image',
-    author: 'author',
     info: 'img2'
   },
   {
-    img: img3,
+    img: '',
     title: 'Image',
-    author: 'author',
     info: 'img3'
   },
-];
-
+]
 function ProjectsPage() {
 
-  const classes = useStyles();
+  const [activePopap, setActivePopap] = useState(false);
+  const [description, setDescription] = useState('test description');
+  const [imgPopap1, setImgPopap1] = useState('');
+  const [imgPopap2, setImgPopap2] = useState('');
 
-  const [inf, setInf] = useState(false)
-  const [message, setMessage] = useState('lLorem ipsum dolor sit amet consectetur adipisicing elit. Inventore nam reprehenderit odio magni? Ullam r')
-
-  const showInfo = (info) => {
-    setInf(!inf);
-    setMessage(info)
+  const showPopap = (description, img2, img3) => {
+    setActivePopap(!activePopap)
+    setDescription(description)
+    setImgPopap1(img2)
+    setImgPopap2(img3)
   }
   const closePopap = () => {
-    setInf(!inf)
+    setActivePopap(!activePopap)
+  }
+  const showBigImg = () => {
+
   }
   return (
-    <div>
-      {inf ? <div className="container__popap">
-        < button className="popap__close" > <CloseIcon className='icon__close' onClick={closePopap} /></button >
-        <div className='popap'>
-          {message}
-        </div>
-      </div > : null}
+    <>
+      {activePopap ?
+        <div className="container__popap">
+          <button className="popap__close" > <CloseIcon className='icon__close' onClick={closePopap} /></button >
+          <img className='img__popap' src={imgPopap1} alt="" onClick={showBigImg} />
+          <img className='img__popap' src={imgPopap2} alt="" />
+          <p>{description}</p>
+        </div >
+        : null
+      }
 
-      <div className={classes.root} className='gallery__images'>
-        <ImageList rowHeight={200} className={classes.imageList}>
-          <ImageListItem key="Subheader" cols={2} style={{ height: 'auto' }}>
-            <ListSubheader component="div">Projects</ListSubheader>
-          </ImageListItem>
-          {itemData.map((item) => (
-            <ImageListItem key={item.img}>
-              <img src={item.img} alt={item.title} />
-              <ImageListItemBar
-                title={item.title}
-                subtitle={<span>by: {item.author}</span>}
-                actionIcon={
-                  <IconButton aria-label={`info about ${item.title}`} className={classes.icon} onClick={() => showInfo(item.info)}>
-                    <InfoIcon />
-                  </IconButton>
-                }
-              />
-            </ImageListItem>
+      <div className='wrapper__gallery'>
+        <div className="gallery">
+          {projects.map(({ img1, img2, img3, title, info }, index) => (
+            <div key={index} className="container">
+              <p className='project__title'>Title: {title}</p>
+              <img src={img1} className="container__img" />
+              <div className="overlay">
+                <button className="moreInf" onClick={() => showPopap(info, img2, img3)}>Show more information</button></div>
+            </div>
           ))}
-        </ImageList>
+        </div>
       </div>
-    </div>
-
-  );
+    </>
+  )
 }
-export default ProjectsPage;
+export default ProjectsPage
