@@ -67,7 +67,8 @@ border: -2px black solid;
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(94, 37, 37, 0.9);
+  color: white;
   width: 50vw;
   height: auto ;
   max-height: 100vh;
@@ -76,6 +77,7 @@ border: -2px black solid;
   justify-content: space-around;
   align-items: center; 
   flex-wrap: wrap;
+  text-align: center;
   animation: popap .3s linear;
 
 }
@@ -86,6 +88,9 @@ border: -2px black solid;
   background-color: rgba(255, 255, 255, 0);
   border: none;
 
+}
+.popap__txt{
+  margin: 30px;
 }
 .project__title{
 font-size: 15px;
