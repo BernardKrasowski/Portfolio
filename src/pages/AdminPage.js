@@ -22,7 +22,7 @@ function AdminPage() {
   }
 
   const signIn = () => {
-    if (login != "" && password != "") {
+    if (login !== "" && password !== "") {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
