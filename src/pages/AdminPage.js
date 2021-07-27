@@ -1,15 +1,31 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router-dom'
+
+import React, { useState } from 'react'
+import LoginPage from './LoginPage';
+import { auth, provider } from './firebase';
 
 const permission = false;
 
 function AdminPage() {
+
+  const [user, setUser] = useState(null)
+
+  const signIn = () => {
+    auth.signInWithPopup(provider).then(result => (
+      console.log(result)
+    )).catch(error => alert(error.message))
+  }
+
   return (
-    <Route render={() => (
-      permission ? (<h3>Panel admina dziendobry</h3>) : (
-        <Redirect to='/login' />
+    <>
+      {!user ? (
+        <LoginPage sign={signIn} />
       )
-    )} />
+        :
+        (
+          <h1>Panel admin</h1>
+        )
+      }
+    </>
   )
 }
 

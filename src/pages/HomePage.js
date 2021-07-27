@@ -23,10 +23,10 @@ function HomePage() {
   return (
     <>
       <div className="aboutMe">
-        {title ? <h1 className='aboutMe__title'>Hi, My name is Bernard Krasowski</h1> : false}
+        {title ? <h1 className='aboutMe__title'>Hi, My name is Bernard Krasowski</h1> : null}
         {txt ? <p className='aboutMe__txt'>
           I started my adventure as a front end developer 1.5 years ago. I have basic knowledge about various technologies that I supplement every day. In my professional life I would like to focus on developing my skills. I am looking for a company that will give me a chance to develop in this direction and help in future professional successes.
-        </p> : false}
+        </p> : null}
       </div>
     </>
   )
