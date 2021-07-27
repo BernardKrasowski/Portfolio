@@ -3,9 +3,12 @@ import ReactDOM from 'react-dom';
 import './styles/index.css';
 import App from './layouts/App.js';
 
+
 ReactDOM.render(
   <React.StrictMode>
+
     <App />
+
   </React.StrictMode>,
   document.getElementById('root')
 );
