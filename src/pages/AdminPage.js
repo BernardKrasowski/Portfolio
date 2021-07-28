@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react'
 import LoginPage from './LoginPage';
 
@@ -21,19 +20,38 @@ function AdminPage() {
 
   }
 
-  const signIn = () => {
+
+  const signIn = async () => {
     if (login !== "" && password !== "") {
       const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: login, password: password })
       };
-      fetch('http://localhost:9000/login', requestOptions)
-        .then(response => response.json())
-        .then(data => {
-          setUser(data)
+      await fetch('http://localhost:9000/login/admin', requestOptions)
+        .then(response => {
+          return response.json()
         })
-    } else { alert('Write login and password.') }
+        .then(data => {
+
+          switch (data) {
+            case "Succes":
+              setUser(true);
+              break;
+
+            case "Not allowed":
+              alert('Wrong Password')
+              break;
+            case "Wrong":
+              alert('wrong login and password')
+              break;
+
+            default:
+              console.log('ok')
+              break;
+          }
+        })
+    }
   }
   return (
     <>
