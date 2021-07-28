@@ -5,7 +5,7 @@ import { Prompt } from 'react-router-dom'
 function ContactPage() {
 
   const [areaValue, setAreaValue] = useState('');
-  const [checkSubmit, setCheckSubmit] = useState(true)
+  const [checkSubmit, setCheckSubmit] = useState(false)
   const change = (e) => {
     setAreaValue(e.target.value)
   }
@@ -13,12 +13,21 @@ function ContactPage() {
     e.preventDefault();
     if (areaValue) {
       setAreaValue('')
-      setCheckSubmit(false)
+      setCheckSubmit(true)
+      sendMessage();
     }
     else alert('The message field is empty. Please write a message.')
-
   }
-
+  const sendMessage = async () => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ areaValue })
+    };
+    await fetch('http://localhost:9000/messages', requestOptions)
+      .then(response => response.json())
+      .then(data => console.log(data))
+  }
   return (
 
 
@@ -33,7 +42,7 @@ function ContactPage() {
         <button>Submit</button>
       </form>
       <Prompt
-        when={checkSubmit}
+        when={!checkSubmit}
         message="Are you sure you want to leave without Submit message?"
       />
     </div>

@@ -18,7 +18,7 @@ const list = [
   },
   {
     name: 'Admin',
-    path: './admin'
+    path: './login'
   }
 ]
 
