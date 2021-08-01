@@ -1,0 +1,21 @@
+.adminPage{
+
+  height: 100%;
+
+}
+
+.adminPage h1{
+  text-align: center;
+  padding: 20px;
+}
+.message{
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+}
+.message span {
+  padding: 20px 0;
+}
+
+
+

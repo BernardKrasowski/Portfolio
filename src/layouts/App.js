@@ -9,27 +9,27 @@ function App() {
 
 
   return (
+    <div className="wrapper">
+      <div className="app">
+        <Router>
+          <header>
+            <Header />
+          </header>
+          <main>
+            <aside>
+              <Navigation />
+            </aside>
+            <section className="page">
+              <Page />
+            </section>
+          </main>
+        </Router>
 
-    <div className="app">
 
-      <Router>
-        <header>
-          <Header />
-        </header>
-        <main>
-          <aside>
-            <Navigation />
-          </aside>
-          <section className="page">
-            <Page />
-          </section>
-        </main>
-      </Router>
-
-
+      </div>
     </div>
 
   );
-}
 
+}
 export default App;

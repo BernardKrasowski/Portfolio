@@ -26,7 +26,7 @@ function ContactPage() {
     };
     await fetch('http://localhost:9000/messages', requestOptions)
       .then(response => response.json())
-      .then(data => console.log(data))
+
   }
   return (
 
