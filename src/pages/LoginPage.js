@@ -4,7 +4,7 @@ import AdminPage from './AdminPage'
 
 function LoginPage() {
 
-  const [user, setUser] = useState(true)
+  const [user, setUser] = useState(false)
   const [login, setlogin] = useState('')
   const [password, setpassword] = useState('')
 

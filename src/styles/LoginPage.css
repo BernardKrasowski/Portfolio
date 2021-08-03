@@ -1,7 +1,8 @@
 .wrapper__loginPage{
-
   display: flex;
   justify-content: center;
+  animation: animepage .3s linear ;
+
 }
 .loginPage{
   display: flex;

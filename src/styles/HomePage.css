@@ -1,5 +1,6 @@
 div.aboutMe{
   max-width: 80vw;
+  animation: animepage 1s linear;
 }
 .aboutMe__title{
   text-transform: uppercase;
@@ -22,4 +23,5 @@ p.aboutMe__txt{
   padding-top: 20px;
   animation: animation .4s linear ;
   line-height: 30px;
+
 }

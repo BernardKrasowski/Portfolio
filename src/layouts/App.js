@@ -9,7 +9,8 @@ function App() {
 
 
   return (
-    <div className="wrapper">
+    <div className="wrapper" >
+
       <div className="app">
         <Router>
           <header>
@@ -28,6 +29,7 @@ function App() {
 
       </div>
     </div>
+
 
   );
 

@@ -4,6 +4,8 @@
   min-height: 200px;
   margin: 20px 0;
   line-height: 1.6;
+animation: animepage .3s linear ;
+
 }
 .contact button{
   display: block;

@@ -4,6 +4,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  animation: animepage .3s linear;
 }
 .gallery{
 width: 100%;

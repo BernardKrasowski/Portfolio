@@ -1,7 +1,7 @@
 .adminPage{
 
   height: 100%;
-
+animation: animepage .3s linear ;
 }
 
 .adminPage h1{

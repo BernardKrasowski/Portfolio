@@ -36,7 +36,7 @@ function AdminPage() {
   return (
     <div className="adminPage">
 
-      <h1>Welcom on Admin Page:</h1>
+      <h1>Admin Page:</h1>
 
       <div className="messages">
 
